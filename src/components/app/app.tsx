@@ -12,12 +12,12 @@ import {
 import '../../index.css';
 import styles from './app.module.css';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
-import { ProtectedRoute } from '../protected-route';
 
 import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
 import { useDispatch } from '../../services/store';
 import { useEffect } from 'react';
 import { getItems as getIngredients } from '../../services/ingredients/actions';
+import { ProtectedRoute } from '../protected-route/protected-route';
 
 const App = () => {
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ const App = () => {
         <Route
           path='/login'
           element={
-            <ProtectedRoute>
+            <ProtectedRoute onlyUnAuth>
               <Login />
             </ProtectedRoute>
           }
@@ -47,7 +47,7 @@ const App = () => {
         <Route
           path='/register'
           element={
-            <ProtectedRoute>
+            <ProtectedRoute onlyUnAuth>
               <Register />
             </ProtectedRoute>
           }
