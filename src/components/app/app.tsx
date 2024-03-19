@@ -32,7 +32,6 @@ const App = () => {
   return (
     <div className={styles.app}>
       <AppHeader />
-      {/* <ConstructorPage /> */}
       <Routes location={backgroundLocation || location}>
         <Route path='/' element={<ConstructorPage />} />
         <Route path='/feed' element={<Feed />} />
@@ -55,7 +54,7 @@ const App = () => {
         <Route
           path='/forgot-password'
           element={
-            <ProtectedRoute>
+            <ProtectedRoute onlyUnAuth>
               <ForgotPassword />
             </ProtectedRoute>
           }
@@ -63,7 +62,7 @@ const App = () => {
         <Route
           path='/reset-password'
           element={
-            <ProtectedRoute>
+            <ProtectedRoute onlyUnAuth>
               <ResetPassword />
             </ProtectedRoute>
           }
@@ -84,23 +83,33 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route path='/ingredients/:id' element={<IngredientDetails />} />
+        <Route path='/feed/:number' element={<OrderInfo />} />
+        <Route
+          path='/profile/orders/:number'
+          element={
+            <ProtectedRoute>
+              <OrderInfo />
+            </ProtectedRoute>
+          }
+        />
         <Route path='*' element={<NotFound404 />} />
       </Routes>
       {backgroundLocation && (
         <Routes>
           <Route
-            path='/feed/:number'
+            path='/ingredients/:id'
             element={
-              <Modal title={''} onClose={() => navigate(-1)}>
-                <OrderInfo />
+              <Modal title={'Детали ингредиента'} onClose={() => navigate(-1)}>
+                <IngredientDetails />
               </Modal>
             }
           />
           <Route
-            path='/ingredients/:id'
+            path='/feed/:number'
             element={
               <Modal title={''} onClose={() => navigate(-1)}>
-                <IngredientDetails />
+                <OrderInfo />
               </Modal>
             }
           />

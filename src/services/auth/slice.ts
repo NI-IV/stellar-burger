@@ -1,7 +1,7 @@
 import { createSlice, isAction } from '@reduxjs/toolkit';
 import { TUser } from '@utils-types';
-import { login, register } from './actions';
-import { setCookie } from '../../utils/cookie';
+import { login, logout, register, update } from './actions';
+import { deleteCookie, setCookie } from '../../utils/cookie';
 
 type TAuthState = {
   user: TUser;
@@ -30,12 +30,12 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(register.pending, (state) => {
-        state.isAuthChecked = true;
+        state.isAuthChecked = false;
         state.error = undefined;
       })
       .addCase(register.fulfilled, (state, action) => {
-        state.user = action.payload.user;
         state.isAuthChecked = true;
+        state.user = action.payload.user;
         state.error = undefined;
         setCookie('accessToken', action.payload.accessToken);
         setCookie('refreshToken', action.payload.refreshToken);
@@ -43,16 +43,16 @@ const authSlice = createSlice({
         localStorage.setItem('refreshToken', action.payload.refreshToken);
       })
       .addCase(register.rejected, (state, action) => {
-        state.isAuthChecked = true;
+        state.isAuthChecked = false;
         state.error = action.error.message!;
       })
       .addCase(login.pending, (state) => {
-        state.isAuthChecked = true;
+        state.isAuthChecked = false;
         state.error = undefined;
       })
       .addCase(login.fulfilled, (state, action) => {
-        state.user = action.payload.user;
         state.isAuthChecked = true;
+        state.user = action.payload.user;
         state.error = undefined;
         setCookie('accessToken', action.payload.accessToken);
         setCookie('refreshToken', action.payload.refreshToken);
@@ -60,7 +60,32 @@ const authSlice = createSlice({
         localStorage.setItem('refreshToken', action.payload.refreshToken);
       })
       .addCase(login.rejected, (state, action) => {
-        state.isAuthChecked = true;
+        state.isAuthChecked = false;
+        state.error = action.error.message!;
+      })
+      .addCase(logout.pending, (state) => {
+        state.error = undefined;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.isAuthChecked = false;
+        state.user = { name: '', email: '' };
+        deleteCookie('accessToken');
+        deleteCookie('refreshToken');
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+      })
+      .addCase(logout.rejected, (state, action) => {
+        state.isAuthChecked = false;
+        state.error = action.error.message!;
+      })
+      .addCase(update.pending, (state) => {
+        state.error = undefined;
+      })
+      .addCase(update.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+        state.error = undefined;
+      })
+      .addCase(update.rejected, (state, action) => {
         state.error = action.error.message!;
       });
   }

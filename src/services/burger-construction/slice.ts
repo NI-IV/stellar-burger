@@ -29,10 +29,17 @@ const burgerConstructionSlice = createSlice({
           (item) => item.id !== action.payload.id
         );
       }
+    },
+    clearConstruction: (state) => {
+      state.bun = null;
+      state.ingredients = [];
     }
   }
 });
 
 export const reducer = burgerConstructionSlice.reducer;
-export const { addItemToConstruction, removeItemFromConstruction } =
-  burgerConstructionSlice.actions;
+export const {
+  addItemToConstruction,
+  removeItemFromConstruction,
+  clearConstruction
+} = burgerConstructionSlice.actions;
