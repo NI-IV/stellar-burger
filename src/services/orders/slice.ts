@@ -1,13 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { TOrder } from '@utils-types';
-import { getOrders } from './actions';
+import { getAllFeeds, getAllUserOrders } from './actions';
 
 type TOrdersState = {
   orders: TOrder[];
+  total: number;
+  totalToday: number;
+  orderRequest: boolean;
 };
 
 const initialState: TOrdersState = {
-  orders: []
+  orders: [],
+  total: 0,
+  totalToday: 0,
+  orderRequest: false
 };
 
 const ordersSlice = createSlice({
@@ -15,14 +21,38 @@ const ordersSlice = createSlice({
   initialState,
   reducers: {},
   selectors: {
-    getUsersOrders: (state) => state.orders
+    getOrders: (state) => state.orders,
+    getTotal: (state) => state.total,
+    getTotalToday: (state) => state.totalToday,
+    getOrderRequest: (state) => state.orderRequest
   },
   extraReducers: (builder) => {
-    builder.addCase(getOrders.fulfilled, (state, action) => {
-      state.orders = action.payload;
-    });
+    builder
+      .addCase(getAllUserOrders.pending, (state) => {
+        state.orderRequest = true;
+      })
+      .addCase(getAllUserOrders.fulfilled, (state, action) => {
+        state.orderRequest = false;
+        state.orders = action.payload;
+      })
+      .addCase(getAllUserOrders.rejected, (state) => {
+        state.orderRequest = false;
+      })
+      .addCase(getAllFeeds.pending, (state) => {
+        state.orderRequest = true;
+      })
+      .addCase(getAllFeeds.fulfilled, (state, action) => {
+        state.orderRequest = false;
+        state.orders = action.payload.orders;
+        state.total = action.payload.total;
+        state.totalToday = action.payload.totalToday;
+      })
+      .addCase(getAllFeeds.rejected, (state) => {
+        state.orderRequest = false;
+      });
   }
 });
 
 export const reducer = ordersSlice.reducer;
-export const { getUsersOrders } = ordersSlice.selectors;
+export const { getOrders, getTotal, getTotalToday, getOrderRequest } =
+  ordersSlice.selectors;
