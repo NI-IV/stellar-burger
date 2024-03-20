@@ -28,9 +28,7 @@ export const BurgerConstructor: FC = () => {
 
     if (!isAuthChecked) {
       navigate('/login');
-    }
-
-    if (constructorItems.bun && constructorItems.ingredients.length) {
+    } else if (constructorItems.bun && constructorItems.ingredients.length) {
       const data = [
         constructorItems.bun._id,
         constructorItems.bun._id,
