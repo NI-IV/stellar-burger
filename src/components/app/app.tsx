@@ -18,6 +18,7 @@ import { useDispatch } from '../../services/store';
 import { useEffect } from 'react';
 import { getItems as getIngredients } from '../../services/ingredients/actions';
 import { ProtectedRoute } from '../protected-route/protected-route';
+import { check as checkUser } from '../../services/auth/actions';
 
 const App = () => {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getIngredients());
+    dispatch(checkUser());
   }, []);
 
   return (

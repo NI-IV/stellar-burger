@@ -1,6 +1,6 @@
 import { createSlice, isAction } from '@reduxjs/toolkit';
 import { TUser } from '@utils-types';
-import { login, logout, register, update } from './actions';
+import { check, login, logout, register, update } from './actions';
 import { deleteCookie, setCookie } from '../../utils/cookie';
 
 type TAuthState = {
@@ -86,6 +86,18 @@ const authSlice = createSlice({
         state.error = undefined;
       })
       .addCase(update.rejected, (state, action) => {
+        state.error = action.error.message!;
+      })
+      .addCase(check.pending, (state) => {
+        state.isAuthChecked = false;
+      })
+      .addCase(check.fulfilled, (state, action) => {
+        state.isAuthChecked = true;
+        state.user = action.payload.user;
+        state.error = undefined;
+      })
+      .addCase(check.rejected, (state, action) => {
+        state.isAuthChecked = false;
         state.error = action.error.message!;
       });
   }
