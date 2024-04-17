@@ -8,7 +8,7 @@ type TNewOrderSlice = {
   orderRequest: boolean;
 };
 
-const initialState: TNewOrderSlice = {
+export const initialState: TNewOrderSlice = {
   order: null,
   name: '',
   orderRequest: false

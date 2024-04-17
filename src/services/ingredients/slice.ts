@@ -7,7 +7,7 @@ type TIngredientsState = {
   isIngredientsLoading: boolean;
 };
 
-const initialState: TIngredientsState = {
+export const initialState: TIngredientsState = {
   ingredients: [],
   isIngredientsLoading: false
 };
