@@ -45,10 +45,7 @@ describe('register action tests', () => {
     const newStateFulfilled = {
       ...initialState,
       isAuthChecked: true,
-      user: {
-        email: 'test@test.com',
-        name: 'Igor'
-      },
+      user: mockUserData.user,
       error: undefined
     };
 
@@ -70,7 +67,7 @@ describe('register action tests', () => {
     const newStateRejected = {
       ...initialState,
       isAuthChecked: false,
-      error: 'Error message'
+      error: mockError.message
     };
 
     expect(newState(action)).toStrictEqual(newStateRejected);
@@ -102,10 +99,7 @@ describe('login action tests', () => {
     const newStateFulfilled = {
       ...initialState,
       isAuthChecked: true,
-      user: {
-        email: 'test@test.com',
-        name: 'Igor'
-      },
+      user: mockUserData.user,
       error: undefined
     };
 
@@ -168,7 +162,7 @@ describe('logout action tests', () => {
     const newStateRejected = {
       ...initialState,
       isAuthChecked: false,
-      error: 'Error message'
+      error: mockError.message
     };
 
     expect(newState(action)).toStrictEqual(newStateRejected);
@@ -198,10 +192,7 @@ describe('update action tests', () => {
 
     const newStateFulfilled = {
       ...initialState,
-      user: {
-        email: 'test@test.com',
-        name: 'Igor'
-      },
+      user: mockUserData.user,
       error: undefined
     };
 
@@ -216,7 +207,7 @@ describe('update action tests', () => {
 
     const newStateRejected = {
       ...initialState,
-      error: 'Error message'
+      error: mockError.message
     };
 
     expect(newState(action)).toStrictEqual(newStateRejected);
@@ -247,10 +238,7 @@ describe('check action tests', () => {
     const newStateFulfilled = {
       ...initialState,
       isAuthChecked: true,
-      user: {
-        email: 'test@test.com',
-        name: 'Igor'
-      }
+      user: mockUserData.user
     };
 
     expect(newState(action)).toStrictEqual(newStateFulfilled);
