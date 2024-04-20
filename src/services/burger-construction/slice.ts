@@ -6,7 +6,7 @@ type TBurgerConstructionState = {
   ingredients: TConstructorIngredient[];
 };
 
-const initialState: TBurgerConstructionState = {
+export const initialState: TBurgerConstructionState = {
   bun: null,
   ingredients: []
 };
@@ -19,7 +19,10 @@ const burgerConstructionSlice = createSlice({
       if (action.payload.type === 'bun') {
         state.bun = action.payload;
       } else {
-        const item = { ...action.payload, id: state.ingredients.length };
+        const item = {
+          ...action.payload,
+          id: String(state.ingredients.length)
+        };
         state.ingredients.push(item);
       }
     },

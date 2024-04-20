@@ -1,0 +1,16 @@
+{
+    "success": true,
+    "order": {
+      "_id": "1",
+      "status": "done",
+      "name": "Бургер",
+      "createdAt": "18/04/2024",
+      "updatedAt": "18/04/2024",
+      "number": 11115,
+      "ingredients": [
+          "643d69a5c3f7b9001cfa093c",
+          "643d69a5c3f7b9001cfa0941"
+      ]
+    },
+    "name": "Test"
+  }

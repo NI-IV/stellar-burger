@@ -9,7 +9,7 @@ type TAuthState = {
   error: string | undefined;
 };
 
-const initialState: TAuthState = {
+export const initialState: TAuthState = {
   user: {
     name: '',
     email: ''
@@ -61,7 +61,7 @@ const authSlice = createSlice({
       })
       .addCase(login.rejected, (state, action) => {
         state.isAuthChecked = false;
-        state.error = action.error.message!;
+        //state.error = action.error.message!;
       })
       .addCase(logout.pending, (state) => {
         state.error = undefined;
@@ -94,11 +94,11 @@ const authSlice = createSlice({
       .addCase(check.fulfilled, (state, action) => {
         state.isAuthChecked = true;
         state.user = action.payload.user;
-        state.error = undefined;
+        //state.error = undefined;
       })
       .addCase(check.rejected, (state, action) => {
         state.isAuthChecked = false;
-        state.error = action.error.message!;
+        //state.error = action.error.message!;
       });
   }
 });
