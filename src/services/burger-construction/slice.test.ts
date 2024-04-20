@@ -6,7 +6,7 @@ import {
   addItemToConstruction,
   removeItemFromConstruction
 } from './slice';
-import { ingredients } from '../../data';
+import { ingredients, newIngredient } from '../../data';
 
 const mockIngredients = [
   {
@@ -20,7 +20,7 @@ const mockIngredients = [
 ];
 
 const mockNewIngredient = {
-  ...ingredients[2],
+  ...newIngredient,
   id: '2'
 };
 
