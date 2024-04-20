@@ -1,8 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1713470829829" clover="3.2.0">
-  <project timestamp="1713470829829" name="All files">
-    <metrics statements="649" coveredstatements="448" conditionals="34" coveredconditionals="33" methods="38" coveredmethods="6" elements="721" coveredelements="487" complexity="0" loc="649" ncloc="649" packages="7" files="12" classes="12"/>
-    <package name="services">
+<coverage generated="1713610511978" clover="3.2.0">
+  <project timestamp="1713610511978" name="All files">
+    <metrics statements="695" coveredstatements="494" conditionals="34" coveredconditionals="33" methods="38" coveredmethods="6" elements="767" coveredelements="533" complexity="0" loc="695" ncloc="695" packages="8" files="13" classes="13"/>
+    <package name="src">
+      <metrics statements="46" coveredstatements="46" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="data.ts" path="/Users/ni/dev/stellar-burger/src/data.ts">
+        <metrics statements="46" coveredstatements="46" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.services">
       <metrics statements="34" coveredstatements="34" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="store.ts" path="/Users/ni/dev/stellar-burger/src/services/store.ts">
         <metrics statements="34" coveredstatements="34" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -42,7 +94,7 @@
         <line num="34" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="services.auth">
+    <package name="src.services.auth">
       <metrics statements="121" coveredstatements="121" conditionals="16" coveredconditionals="16" methods="4" coveredmethods="1"/>
       <file name="actions.ts" path="/Users/ni/dev/stellar-burger/src/services/auth/actions.ts">
         <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -172,7 +224,7 @@
         <line num="107" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="services.burger-construction">
+    <package name="src.services.burger-construction">
       <metrics statements="48" coveredstatements="44" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="2"/>
       <file name="slice.ts" path="/Users/ni/dev/stellar-burger/src/services/burger-construction/slice.ts">
         <metrics statements="48" coveredstatements="44" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="2"/>
@@ -226,7 +278,7 @@
         <line num="48" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="services.ingredients">
+    <package name="src.services.ingredients">
       <metrics statements="44" coveredstatements="44" conditionals="3" coveredconditionals="3" methods="3" coveredmethods="1"/>
       <file name="actions.ts" path="/Users/ni/dev/stellar-burger/src/services/ingredients/actions.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -279,7 +331,7 @@
         <line num="37" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="services.new-order">
+    <package name="src.services.new-order">
       <metrics statements="54" coveredstatements="52" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="1"/>
       <file name="actions.ts" path="/Users/ni/dev/stellar-burger/src/services/new-order/actions.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -342,7 +394,7 @@
         <line num="47" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="services.orders">
+    <package name="src.services.orders">
       <metrics statements="66" coveredstatements="66" conditionals="7" coveredconditionals="7" methods="5" coveredmethods="1"/>
       <file name="actions.ts" path="/Users/ni/dev/stellar-burger/src/services/orders/actions.ts">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -417,7 +469,7 @@
         <line num="58" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="utils">
+    <package name="src.utils">
       <metrics statements="282" coveredstatements="87" conditionals="0" coveredconditionals="0" methods="18" coveredmethods="0"/>
       <file name="burger-api.ts" path="/Users/ni/dev/stellar-burger/src/utils/burger-api.ts">
         <metrics statements="235" coveredstatements="85" conditionals="0" coveredconditionals="0" methods="15" coveredmethods="0"/>
